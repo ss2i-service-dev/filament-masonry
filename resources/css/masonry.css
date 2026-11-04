@@ -1,0 +1,52 @@
+/*
+ * Filament Masonry - source stylesheet.
+ *
+ * The blocks between "@expand" and "@end" are repeated by bin/build.js for each
+ * breakpoint ({bp} = md, lg, xl; {min} = its min-width) and each number of
+ * columns ({n} = 2, 3). {X} stands for the list of grids the block applies to:
+ *
+ *   1. explicit: the wrapper carries `.fi-masonry` (Masonry component or
+ *      Grid::masonry()), whatever the content of the grid;
+ *   2. automatic: the panel enabled `auto()` for this breakpoint, the grid
+ *      has {n} columns, every visible child is a section (a full width child
+ *      may be anything) and neither the grid nor its wrapper carries
+ *      `.fi-masonry-disabled` (alias `.no-masonry`).
+ *
+ * `{X > .fi-grid-col}` appends a suffix to every grid of the list.
+ *
+ * Settings come from CSS custom properties, so changing them never needs a
+ * rebuild: `--fi-masonry-gap` (set by FilamentMasonryPlugin::gap()).
+ *
+ * Browsers with native masonry (`display: grid-lanes`) use it and keep the
+ * reading order row by row; the others get CSS columns, which fill the first
+ * column from top to bottom before the second one.
+ */
+
+/* @expand */
+@media (min-width: {min}) {
+    @supports not (display: grid-lanes) {
+        {X} {
+            display: block;
+            columns: {n};
+            column-gap: var(--fi-masonry-gap, 1.5rem);
+        }
+
+        {X > .fi-grid-col:not(.fi-hidden)} {
+            break-inside: avoid;
+            margin-bottom: var(--fi-masonry-gap, 1.5rem);
+        }
+
+        {X > .fi-grid-col[style*="1 / -1"]},
+        {X > .fi-grid-col[style*="span {n} /"]} {
+            column-span: all;
+        }
+    }
+
+    @supports (display: grid-lanes) {
+        {X} {
+            display: grid-lanes;
+            gap: var(--fi-masonry-gap, 1.5rem);
+        }
+    }
+}
+/* @end */
