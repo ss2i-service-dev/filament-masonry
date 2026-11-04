@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ss2i-digital/filament-masonry.svg?style=flat-square)](https://packagist.org/packages/ss2i-digital/filament-masonry)
 [![Tests](https://img.shields.io/github/actions/workflow/status/ss2i-service-dev/filament-masonry/tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/ss2i-service-dev/filament-masonry/actions/workflows/tests.yml)
-[![Code Style](https://img.shields.io/github/actions/workflow/status/ss2i-service-dev/filament-masonry/fix-code-style.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/ss2i-service-dev/filament-masonry/actions/workflows/fix-code-style.yml)
+[![PHPStan](https://img.shields.io/github/actions/workflow/status/ss2i-service-dev/filament-masonry/phpstan.yml?branch=main&label=phpstan&style=flat-square)](https://github.com/ss2i-service-dev/filament-masonry/actions/workflows/phpstan.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/ss2i-digital/filament-masonry.svg?style=flat-square)](https://packagist.org/packages/ss2i-digital/filament-masonry)
 
 <img class="filament-hidden" src="https://raw.githubusercontent.com/ss2i-service-dev/filament-masonry/main/art/banner.jpg" alt="Masonry for Filament forms, by SS2i Digital">
